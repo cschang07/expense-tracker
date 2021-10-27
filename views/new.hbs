@@ -1,0 +1,50 @@
+<div class="container mt-4 w-50">
+  <div class="row title d-flex justify-content-center align-items-center mt-5">
+    <div class="d-flex">
+      <h2 class="mx-auto">新增一筆支出</h2>
+    </div>
+
+    <form action="/records" class="container needs-validation mt-4" method="POST">
+      <div class="input-group mb-3  row">
+        <div class="input-group-prepend form-group">
+          <span for="name" class="input-group-text" id="basic-addon1">內容</span>
+        </div>
+        <input id="name" name="name" type="text" class="form-control" placeholder=" 早餐" aria-label="Username"
+          aria-describedby="basic-addon1" required>
+      </div>
+
+      <div class="input-group mb-3 row justify-content-center">
+        <div class="input-group-prepend form-group">
+          <span for="date" class="input-group-text" id="basic-addon1">日期</span>
+        </div>
+        <input type="name" id="date" name="date" class="form-control" placeholder=" yyyy/mm/dd" required>
+      </div>
+
+      <div class="input-group mb-3 row justify-content-center">
+        <div class="input-group-prepend form-group">
+          <label class="input-group-text" for="inputGroupSelect01">類別</label>
+        </div>
+        <select name="category" class="custom-select categoty" id="inputGroupSelect01" required>
+          <option selected>請選擇</option>
+          <option value="餐飲食品">餐飲食品</option>
+          <option value="交通出行">交通出行</option>
+          <option value="休閒娛樂">休閒娛樂</option>
+          <option value="家居物業">家居物業</option>
+          <option value="其他">其他</option>
+        </select>
+      </div>
+
+      <div class="input-group mb-3 row justify-content-center">
+        <div class="input-group-prepend form-group">
+          <span class="input-group-text" id="basic-addon1">金額</span>
+        </div>
+        <input id="amount" name="amount" type="text" class="form-control" placeholder="120" aria-label=""
+          aria-describedby="basic-addon1" required>
+      </div>
+      <div class="input-group mb-3 row justify-content-center">
+        <button class="btn btn-outline-info" type="submit">新增支出</button>
+      </div>
+
+    </form>
+  </div>
+</div>

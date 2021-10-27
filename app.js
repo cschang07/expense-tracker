@@ -1,3 +1,4 @@
+const bodyParser = require('body-parser')
 const express = require('express')
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose')
@@ -8,6 +9,8 @@ const app = express()
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
 app.set('view engine', 'hbs')
+
+app.use(bodyParser.urlencoded({ extended: true }))
 
 mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
 
@@ -21,12 +24,21 @@ db.once('open', () => {
 
 const PORT = 3000
 
-// 設定首頁路由
+
 app.get('/', (req, res) => {
   Record.find()//get all data in Record
   .lean()
   .then(records => res.render('index', { records }))
   .catch(e => console.log(e))
+})
+app.get('/records/new', (req, res) => {
+  return res.render('new')
+})
+app.post('/records', (req, res) => {
+  Record.create(req.body)
+    .then(() => res.redirect('/'))
+    .then(() => console.log('new expense created'))
+    .catch(error => console.log(error))
 })
 
 
