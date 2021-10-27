@@ -2,6 +2,8 @@ const express = require('express')
 const exphbs = require('express-handlebars');
 const mongoose = require('mongoose')
 
+const Record = require('./models/record')
+
 const app = express()
 
 app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
@@ -21,7 +23,10 @@ const PORT = 3000
 
 // 設定首頁路由
 app.get('/', (req, res) => {
-  res.render('index')
+  Record.find()//get all data in Record
+  .lean()
+  .then(records => res.render('index', { records }))
+  .catch(e => console.log(e))
 })
 
 

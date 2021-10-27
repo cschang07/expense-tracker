@@ -17,16 +17,16 @@ const recordSchema = new Schema({
     type: Number,
     required: true
   },
-  userId: {  // 加入關聯設定
-    type: Schema.Types.ObjectId,
-    ref: 'User',
-    index: true,
-    required: true
-  },
-  categoryId: {
-    type: Schema.Types.ObjectId,
-    ref: 'Category',
-    required: true
-  }
+  // userId: {  // 加入關聯設定
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'User',
+  //   index: true,
+  //   required: true
+  // },
+  // categoryId: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'Category',
+  //   required: true
+  // }
 })
 module.exports = mongoose.model('Record', recordSchema)
