@@ -28,6 +28,7 @@ const PORT = 3000
 app.get('/', (req, res) => {
   Record.find()//get all data in Record
     .lean()
+    .sort({ _id: 'asc' })
     .then(records => res.render('index', { records }))
     .catch(error => console.log(error))
 })
