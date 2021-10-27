@@ -27,9 +27,9 @@ const PORT = 3000
 
 app.get('/', (req, res) => {
   Record.find()//get all data in Record
-  .lean()
-  .then(records => res.render('index', { records }))
-  .catch(e => console.log(e))
+    .lean()
+    .then(records => res.render('index', { records }))
+    .catch(error => console.log(error))
 })
 app.get('/records/new', (req, res) => {
   return res.render('new')
@@ -38,6 +38,15 @@ app.post('/records', (req, res) => {
   Record.create(req.body)
     .then(() => res.redirect('/'))
     .then(() => console.log('new expense created'))
+    .catch(error => console.log(error))
+})
+app.get('/records/:id/edit', (req, res) => {
+  const id = req.params.id
+  return Record.findById(id)
+    .lean()
+    .then(
+      (record) => res.render('edit', { record })
+    )
     .catch(error => console.log(error))
 })
 
