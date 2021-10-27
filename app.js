@@ -1,6 +1,18 @@
-// 載入 express 並建構應用程式伺服器
 const express = require('express')
+const mongoose = require('mongoose')
+
+
 const app = express()
+
+mongoose.connect('mongodb://localhost/expense-tracker', { useNewUrlParser: true, useUnifiedTopology: true })
+
+const db = mongoose.connection
+db.on('error', () => {
+  console.log('mongodb error!')
+})
+db.once('open', () => {
+  console.log('mongodb connected!')
+})
 
 const PORT = 3000
 
@@ -9,7 +21,7 @@ app.get('/', (req, res) => {
   res.send('hello world')
 })
 
-// 設定 port 3000
+
 app.listen(PORT, () => {
   console.log(`App is running on http://localhost:${PORT}`)
 })
