@@ -4,7 +4,7 @@
       <h2 class="mx-auto">編輯支出</h2>
     </div>
 
-    <form action="/records/{{record._id}}/edit" class="container needs-validation mt-4" method="POST">
+    <form action="/records/{{record._id}}?_method=PUT" class="container needs-validation mt-4" method="POST">
       <div class="input-group mb-3  row">
         <input id="name" name="name" type="text" class="form-control" placeholder="消費內容 (必填)" aria-label="Username"
           aria-describedby="basic-addon1" value="{{record.name}}" required>
@@ -30,7 +30,7 @@
           aria-describedby="basic-addon1" value="{{record.amount}}" required>
       </div>
       <div class="input-group mb-3 row justify-content-center">
-        <button class="btn btn-outline-info" type="submit">新增支出</button>
+        <button class="btn btn-outline-info" type="submit">編輯支出</button>
       </div>
 
     </form>
