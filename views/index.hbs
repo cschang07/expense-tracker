@@ -1,11 +1,20 @@
-<ul>
+<a class="btn btn-outline-dark" href="./records/new">新增</a>
+<ul class="list-group">
   {{#each records}}
-  <li>
-    {{this.name}}
-    <a href="./records/{{ this._id }}/edit">edit</a>
-    <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
-      <button type="submit">delete</button>
-    </form>
+  <li class="list-group-item">
+    <div class="row">
+      <div class="col-auto mr-auto">
+        <h4 style="display: inline; vertical-align: middle;">
+          {{ this.name }}
+        </h4>
+      </div>
+      <div class="col-auto">
+        <a class="btn btn-outline-dark" href="./records/{{ this._id }}/edit">編輯</a>
+        <form action="./records/{{ this._id }}?_method=DELETE" method="POST" style="display: inline;">
+          <button class="btn btn-outline-dark" type="submit">刪除</button>
+        </form>
+      </div>
+    </div>
   </li>
   {{/each}}
 </ul>

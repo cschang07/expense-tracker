@@ -3,7 +3,7 @@ const exphbs = require('express-handlebars');
 const bodyParser = require('body-parser')
 const methodOverride = require('method-override')
 
-const Record = require('./models/record')
+
 
 const routes = require('./routes')
 require('./config/mongoose')
