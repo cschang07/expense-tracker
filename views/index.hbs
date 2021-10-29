@@ -1,12 +1,21 @@
 <a class="btn btn-outline-dark" href="./records/new">新增</a>
-<ul class="list-group">
+<ul class="list-group mt-3">
   {{#each records}}
   <li class="list-group-item">
     <div class="row">
-      <div class="col-auto mr-auto">
-        <h4 style="display: inline; vertical-align: middle;">
-          {{ this.name }}
-        </h4>
+      <div class="col-2 my-auto text-center">
+        <i class="fs-2 {{this.icon}}"></i>
+      </div>
+      <div class="col-4">
+        <div class="fs-5">
+          {{this.name}}
+        </div>
+        <div class="date">
+          {{this.date}}
+        </div>
+      </div>
+      <div class="col-2 my-auto text-end">
+        {{this.amount}} 元
       </div>
       <div class="col-auto">
         <a class="btn btn-outline-dark" href="./records/{{ this._id }}/edit">編輯</a>
