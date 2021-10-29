@@ -1,5 +1,6 @@
 const express = require('express')
 const router = express.Router()
+const dayjs = require('dayjs')
 
 const Record = require('../../models/record')
 
@@ -16,9 +17,10 @@ router.get('/:id/edit', (req, res) => {
   const id = req.params.id
   return Record.findById(id)
     .lean()
-    .then(
-      (record) => res.render('edit', { record })
-    )
+    .then( record => {
+      record.date = dayjs(record.date).format('YYYY-MM-DD')
+      res.render('edit', { record })
+    })
     .catch(error => console.log(error))
 })
 router.put('/:id', (req, res) => {
