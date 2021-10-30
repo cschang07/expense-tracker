@@ -9,7 +9,12 @@ require('./config/mongoose')
 
 const app = express()
 
-app.engine('hbs', exphbs({ defaultLayout: 'main', extname: '.hbs' }))
+app.engine('hbs', exphbs({
+  defaultLayout: 'main', extname: '.hbs', helpers: {
+    'isEqual': function (a, b) {
+      return a === b
+    }
+  } }))
 app.set('view engine', 'hbs')
 
 app.use(bodyParser.urlencoded({ extended: true }))

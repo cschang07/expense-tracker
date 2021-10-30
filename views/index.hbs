@@ -1,4 +1,30 @@
-<a class="btn btn-outline-dark" href="./records/new">新增</a>
+<div class="container">
+  <div class="row">
+    <div class="column">
+      <div class="d-flex justify-content-between">
+        <h2>總支出：{{totalAmount}}</h2>
+        <div class="d-flex">
+          <a class="btn btn-outline-dark" href="./records/new">新增</a>
+          {{!-- dropdown button --}}
+          <div class="">
+            <form action="/" method="GET" onchange="submit();">
+              <select name="category" class="form-select rounded-0 " id="category" required>
+                <option value="" {{#if (isEqual filteredCategory "" )}} selected {{/if}}>全部支出</option>
+                <option value="家居物業" {{#if (isEqual filteredCategory "家居物業" )}} selected {{/if}}>家居物業</option>
+                <option value="交通出行" {{#if (isEqual filteredCategory "交通出行" )}} selected {{/if}}>交通出行</option>
+                <option value="休閒娛樂" {{#if (isEqual filteredCategory "休閒娛樂" )}} selected {{/if}}>休閒娛樂</option>
+                <option value="餐飲食品" {{#if (isEqual filteredCategory "餐飲食品" )}} selected {{/if}}>餐飲食品</option>
+                <option value="其他" {{#if (isEqual filteredCategory "其他" )}} selected {{/if}}>其他</option>
+              </select>
+            </form>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <ul class="list-group mt-3">
   {{#each records}}
   <li class="list-group-item">

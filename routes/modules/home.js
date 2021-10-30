@@ -11,18 +11,25 @@ const Category = {
 }
 
 router.get('/', (req, res) => {
-  Record.find()//get all data in Record
+  let totalAmount = 0
+  const filteredCategory = req.query.category || ''
+  let filteredRecord = {}
+  if (filteredCategory) {
+    filteredRecord = { 'category': { '$regex': filteredCategory, '$options': 'i' } }
+  }
+
+  Record.find({ ...filteredRecord })
     .lean()
-    .sort({ _id: 'asc' })
     .then(records => {
       records.forEach(record => {
         record.icon = Category[record.category]
         record.date = dayjs(record.date).format('YYYY-MM-DD')
+        totalAmount += record.amount
       })
-      res.render('index', { records })
+      res.render('index', { records, totalAmount, filteredCategory })
     })
+    .catch(error => console.error(error))
 
-    .catch(e => console.log(e))
 })
 
 module.exports = router
