@@ -17,8 +17,9 @@ router.get('/', (req, res) => {
   if (filteredCategory) {
     filteredRecord = { 'category': { '$regex': filteredCategory, '$options': 'i' } }
   }
+  const userId = req.user._id
 
-  Record.find({ ...filteredRecord })
+  Record.find({ userId,...filteredRecord })
     .lean()
     .then(records => {
       records.forEach(record => {
