@@ -32,6 +32,14 @@ app.use(methodOverride('_method'))
 
 usePassport(app)
 
+//hand result of req.user & that of res.isAuthenticated over to res
+app.use((req, res, next) => {
+  //  console.log(req.user) 
+  res.locals.isAuthenticated = req.isAuthenticated()
+  res.locals.user = req.user
+  next()
+})
+
 app.use(routes)
 
 
