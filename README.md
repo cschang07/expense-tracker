@@ -45,22 +45,21 @@
 | name            | email    | password |
 | --------------- | -------- |----------|
 | user1          | user1@example.com     | 12345678  |
-| user2          | user1@example.com     | 12345678  |
+| user2          | user2@example.com     | 12345678  |
   
 ## Environment and dependencies
 * [Node.js](https://nodejs.org/en/)
-* Dependencies": {
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "connect-flash": "^0.1.1",
-    "dayjs": "^1.10.7",
-    "dotenv": "^10.0.0",
-    "express": "^4.17.1",
-    "express-handlebars": "^5.3.4",
-    "express-session": "^1.17.2",
-    "handlebars-dateformat": "^1.1.1",
-    "method-override": "^3.0.0",
-    "mongoose": "^6.0.12",
-    "passport": "^0.5.0",
-    "passport-facebook": "^3.0.0",
-    "passport-local": "^1.0.0"
+* "bcryptjs": "^2.4.3"
+* "body-parser": "^1.19.0",
+* "connect-flash": "^0.1.1",
+* "dayjs": "^1.10.7",
+* "dotenv": "^10.0.0",
+* "express": "^4.17.1",
+* "express-handlebars": "^5.3.4",
+* "express-session": "^1.17.2",
+* "handlebars-dateformat": "^1.1.1",
+* "method-override": "^3.0.0",
+* "mongoose": "^6.0.12",
+* "passport": "^0.5.0",
+* "passport-facebook": "^3.0.0",
+* "passport-local": "^1.0.0"
