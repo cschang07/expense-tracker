@@ -7,7 +7,6 @@ const Record = require('../../models/record')
 router.get('/new', (req, res) => {
   return res.render('new')
 })
-//post new page 
 router.post('/', (req, res) => {
   const userId = req.user._id
   const {name, date, category, amount} = req.body

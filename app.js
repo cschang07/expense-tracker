@@ -39,8 +39,7 @@ usePassport(app)
 app.use(flash())
 
 //hand result of req.user & that of res.isAuthenticated over to res
-app.use((req, res, next) => {
-  //  console.log(req.user) 
+app.use((req, res, next) => { 
   res.locals.isAuthenticated = req.isAuthenticated()
   res.locals.user = req.user
   res.locals.success_msg = req.flash('success_msg')
