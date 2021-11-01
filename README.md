@@ -1,6 +1,6 @@
-# This is a expense tracker build with Express in Chinese
+# This is an expense tracker build with Express in Chinese
 
-### :link: heroku 連結
+### :link: heroku
 --
 
 ## Functions
